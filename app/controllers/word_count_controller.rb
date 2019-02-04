@@ -13,7 +13,7 @@ class WordCountController < ApplicationController
 
     @character_count_with_spaces = @text.length.to_s
     
-    chomped = @text.chomp(" ")
+    chomped = @text.gsub(/\s+/, "")
     
     @character_count_without_spaces = chomped.length.to_s
 
