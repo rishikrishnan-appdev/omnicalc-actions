@@ -16,8 +16,10 @@ class WordCountController < ApplicationController
     chomped = @text.gsub(/\s+/, "")
     
     @character_count_without_spaces = chomped.length.to_s
-
-    @occurrences = @text.split.count(@special_word).to_s
+    
+    proc_text = @text.gsub(/[^a-z0-9\s]/i, "").downcase
+    proc_word = @special_word.gsub(/[^a-z0-9\s]/i, "").downcase
+    @occurrences = proc_text.split.count(proc_word).to_s
 
     # ================================================================================
     # Your code goes above.

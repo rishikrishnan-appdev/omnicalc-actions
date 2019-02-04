@@ -13,11 +13,11 @@ class TimeBetweenController < ApplicationController
     
     time = @ending - @starting
     years = time / (60*60*24*365)
-    weeks = (time % (years * 60*60*24*365)) / (60*60*24*7)
-    days = (time % (years * 60*60*24*365 + weeks * 60*60*24*7)) / (60*60*24)
-    hours = (time % (years * 60*60*24*365 + weeks * 60*60*24*7 + days * 60*60*24)) / 3600
-    minutes = (time % (years * 60*60*24*365 + weeks * 60*60*24*7 + days * 60*60*24 + hours * 3600)) / 60
-    seconds = time % (years * 60*60*24*365 + weeks * 60*60*24*7 + days * 60*60*24 + hours * 3600 + minutes * 60)
+    weeks = time / (60*60*24*7)
+    days = time / (60*60*24)
+    hours = time / 3600
+    minutes = time / 60
+    seconds = time
     
     @seconds = seconds
     @minutes = minutes

@@ -17,6 +17,9 @@ class LoanPaymentController < ApplicationController
     monthly_payment = @principal * (@apr / 12) / (1 - (1 + @apr / 12) ** (-12 * @years))
     
     @monthly_payment = monthly_payment.round(2).to_s
+    
+    @apr = @apr*100
+    @apr = @apr.to_s + "%"
 
     # ================================================================================
     # Your code goes above.

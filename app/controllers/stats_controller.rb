@@ -26,7 +26,7 @@ class StatsController < ApplicationController
       median = @sorted_numbers.at(index)
     else
       index = @count / 2
-      median = (@sorted_numbers.at(index) + @sorted_numbers.at(index - 1))/2
+      median = (@sorted_numbers.at(index) + @sorted_numbers.at(index - 2))/2
     end
     
     @median = median
