@@ -20,13 +20,11 @@ class StatsController < ApplicationController
     # Median
     # ======
     if @count.odd?
-      count = @count.to_f
-      index = count / 2
-      index = index.round 
+      index = @count / 2
       median = @sorted_numbers.at(index)
     else
       index = @count / 2
-      median = (@sorted_numbers.at(index) + @sorted_numbers.at(index - 2))/2
+      median = (@sorted_numbers.at(index) + @sorted_numbers.at(index - 1))/2
     end
     
     @median = median
@@ -64,7 +62,7 @@ class StatsController < ApplicationController
     mode = nil
     mode_freq = freq.fetch(@sorted_numbers.at(0))
     @sorted_numbers.each do |num|
-      if freq[num] >= mode_freq
+      if freq[num] > mode_freq
         mode = num
       end
     end
